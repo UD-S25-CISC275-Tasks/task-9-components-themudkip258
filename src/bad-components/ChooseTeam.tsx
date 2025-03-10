@@ -15,6 +15,7 @@ export function ChooseTeam(): React.JSX.Element {
     const [team, setTeam] = useState<string[]>([]);
 
     function chooseMember(newMember: string) {
+        setAllOptions(PEOPLE);
         /*if (!team.includes(newMember)) {
             team.push(newMember);
         }*/
