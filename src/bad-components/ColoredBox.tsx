@@ -8,6 +8,9 @@ interface colorButtonProps {
     setColor: (newColor: number) => void;
     color: number;
 }
+interface justColors {
+    color: number;
+}
 function ChangeColor({ setColor, color }: colorButtonProps): React.JSX.Element {
     //const [colorIndex, setColorIndex] = useState<number>(DEFAULT_COLOR_INDEX);
     function changeIndex() {
@@ -24,10 +27,7 @@ function ChangeColor({ setColor, color }: colorButtonProps): React.JSX.Element {
     );
 }
 
-function ColorPreview({
-    setColor,
-    color,
-}: colorButtonProps): React.JSX.Element {
+function ColorPreview({ color }: justColors): React.JSX.Element {
     return (
         <div
             data-testid="colored-box"
@@ -54,10 +54,7 @@ export function ColoredBox(): React.JSX.Element {
                     setColor={setColorIndex}
                     color={colorIndex}
                 ></ChangeColor>
-                <ColorPreview
-                    setColor={setColorIndex}
-                    color={colorIndex}
-                ></ColorPreview>
+                <ColorPreview color={colorIndex}></ColorPreview>
             </div>
         </div>
     );
